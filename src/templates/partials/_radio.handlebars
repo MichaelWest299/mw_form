@@ -1,0 +1,13 @@
+<fieldset>
+  <h2 class="fs-title">{{title}}</h2>
+  {{#answers}}
+    <div class="radio">
+      <label>
+      <input type="radio" name="{{../name}}" value="{{value}}">
+      <span>{{title}}</span>
+    </label>
+    </div>
+  {{/answers}}
+  <input type="button" name="previous" class="previous action-button" value="Previous" />
+  <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>

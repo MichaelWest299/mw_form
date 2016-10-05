@@ -1,0 +1,76 @@
+{
+  "title": "Feedback",
+  "welcomemessage": "Thanks for using our service, what did you think?",
+  "submitmessage": "Submit your feedback",
+  "passratepercentage": 75,
+  "questions": [{
+    "name": "question1",
+    "title": "How would you describe our service?",
+    "type": "radio",
+    "answers": [{
+      "value": 1,
+      "title": "Awful",
+      "correct": false
+    }, {
+      "value": 2,
+      "title": "Could be better",
+      "correct": false
+    }, {
+      "value": 3,
+      "title": "Satisfactory",
+      "correct": false
+    }, {
+      "value": 4,
+      "title": "Great",
+      "correct": false
+    }, {
+      "value": 5,
+      "title": "Excellent",
+      "correct": true
+    }]
+  }, {
+    "name": "question2",
+    "title": "Please enter your comments in the textbox below",
+    "type": "textarea"
+  }, {
+    "name": "question3",
+    "title": "Please tick all that apply",
+    "type": "checkbox",
+    "has correct": true,
+    "answers": [{
+      "value": 1,
+      "title": "Checkbox1"
+    }, {
+      "value": 2,
+      "title": "Checkbox2"
+    }, {
+      "value": 3,
+      "title": "Checkbox3"
+    }, {
+      "value": 4,
+      "title": "Checkbox4"
+    }]
+  }, {
+    "name": "question4",
+    "title": "Please enter your details below",
+    "type": "details",
+    "answers": [{
+      "value": 1,
+      "title": "Name",
+      "type": "text"
+    }, {
+      "value": 2,
+      "title": "Telephone",
+      "type": "tel"
+    }, {
+      "value": 3,
+      "title": "Email",
+      "type": "email"
+    }, {
+      "value": 4,
+      "title": "URL",
+      "type": "url"
+    }]
+  }],
+  "thankyoumessage": "Thanks for leaving your feedback!"
+}

@@ -1,0 +1,16 @@
+{{> landingPage}}
+{{#each questions}}
+  {{#if_eq type 'radio'}}
+    {{> radio}}
+  {{/if_eq}}
+  {{#if_eq type 'textarea'}}
+    {{> textarea}}
+  {{/if_eq}}
+  {{#if_eq type 'checkbox'}}
+    {{> checkbox}}
+  {{/if_eq}}
+  {{#if_eq type 'details'}}
+    {{> details}}
+  {{/if_eq}}
+{{/each}}
+{{> submitPage}} {{> thankyouPage}}
