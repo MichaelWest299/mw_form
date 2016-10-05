@@ -6,36 +6,34 @@ var gulp = require('gulp'),
  uglify = require('gulp-uglify'),
  rename = require("gulp-rename"),
  concat = require('gulp-concat'),
- htmlmin = require('gulp-htmlmin'),
  jsonminify = require('gulp-jsonminify'),
- connect = require('gulp-connect'),
- open = require('gulp-open'),
  handlebars = require('gulp-handlebars'),
  wrap = require('gulp-wrap'),
  declare = require('gulp-declare'),
  merge = require('merge-stream'),
  path = require('path'),
  useref = require('gulp-useref'),
- uglify = require('gulp-uglify'),
- gulpIf = require('gulp-if');
+ gulpIf = require('gulp-if'),
+ browserSync = require('browser-sync').create();
 
-//Convert scss to css
+//Process styles
 gulp.task('sass', function() {
  gulp.src('src/scss/*.scss')
+   //Convert sass to css
    .pipe(sass())
-   .pipe(gulp.dest('dist/css/'));
-});
-//Minify css
-gulp.task('compresscss', function() {
- gulp.src('dist/css/main.css')
+   //Minify css
    .pipe(cssnano())
    .pipe(rename({
      suffix: '.min'
    }))
-   .pipe(gulp.dest('dist/css/'));
+   .pipe(gulp.dest('dist/css/'))
+   //Inject css
+   .pipe(browserSync.reload({
+      stream: true
+    }));
 });
 
-//Concat and uglify js
+//Uglify js
 gulp.task('useref', function(){
   return gulp.src('src/html/*.html')
     .pipe(useref())
@@ -45,24 +43,13 @@ gulp.task('useref', function(){
 });
 
 
-//Minify json files
+//Minify json file(s)
 gulp.task('minifyjson', function() {
  return gulp.src(['src/data/*.json'])
    .pipe(jsonminify())
    .pipe(gulp.dest('dist/data/'));
 });
-//Set up local server and open in default browser
-gulp.task('connect', function() {
- connect.server({
-   port: 8080,
- });
-});
-gulp.task('open', function() {
- gulp.src(__filename)
-   .pipe(open({
-     uri: 'http://localhost:8080/dist/html/'
-   }));
-});
+
 
 //Compile handlebars templates and partials to dist/templates.js
 gulp.task('templates', function() {
@@ -98,14 +85,24 @@ gulp.task('templates', function() {
    .pipe(gulp.dest('dist/js/'));
 });
 
-//Watch handlebars, html, scss, css and js files for changes
-gulp.task('watch', function() {
- gulp.watch(['src/templates/**/*.handlebars'], ['templates']);
- gulp.watch(['src/data/*json'], ['minifyjson']);
- gulp.watch(['src/html/*.html'], ['minifyhtml']);
- gulp.watch(['src/scss/main.scss'], ['sass']);
- gulp.watch(['dist/css/main.css'], ['compresscss']);
- gulp.watch(['src/js/*.js'], ['useref']);
+//Spin up local server
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: 'dist'
+    },
+    startPath: 'html/'
+  });
 });
 
-gulp.task('default', ['watch', 'connect', 'open']);
+//Watch handlebars, html, json, scss, and js files for changes
+gulp.task('watch', ['browserSync', 'sass', 'useref'], function() {
+ gulp.watch(['src/templates/**/*.handlebars'], ['templates']);
+ gulp.watch(['src/data/*json'], ['minifyjson']);
+ gulp.watch('src/html/*.html', ['useref']).on('change', browserSync.reload);
+ gulp.watch(['src/js/*.js'], ['useref']).on('change', browserSync.reload);
+ gulp.watch(['src/scss/main.scss'], ['sass']);
+});
+
+//'gulp' in console runs the default task
+gulp.task('default', ['watch']);

@@ -7,7 +7,7 @@
     $.ajax({
       'async': false,
       'global': false,
-      'url': '../../dist/data/formdata.json',
+      'url': '../data/formdata.json',
       'dataType': "json",
       'success': function(data) {
         json = data;
