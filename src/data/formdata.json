@@ -2,7 +2,6 @@
   "title": "Feedback",
   "welcomemessage": "Thanks for using our service, what did you think?",
   "submitmessage": "Submit your feedback",
-  "passratepercentage": 75,
   "questions": [{
     "name": "question1",
     "title": "How would you describe our service?",
@@ -30,8 +29,9 @@
     }]
   }, {
     "name": "question2",
-    "title": "Please enter your comments in the textbox below",
-    "type": "textarea"
+    "title": "Please enter your comments below",
+    "type": "textarea",
+    "placeholder": "Tell us what you think..."
   }, {
     "name": "question3",
     "title": "Please tick all that apply",

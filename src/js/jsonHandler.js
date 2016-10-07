@@ -1,5 +1,6 @@
+//jsonHandler.js
 (function() {
-
+  
   //Fetch the JSON data from formdata.json to allow us to populate the form
   var html = '';
   var json = (function() {
@@ -32,6 +33,6 @@
 
   //Append pre-rendered handlebars to the DOM, namely the container and content
   $('body').append(formContainerScript);
-  $('#content').append(formContentScript);
+  $('.content').append(formContentScript);
 
 })();
