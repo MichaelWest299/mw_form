@@ -39,16 +39,16 @@
     "has correct": true,
     "answers": [{
       "value": 1,
-      "title": "Checkbox1"
+      "title": "I would recommend to a friend"
     }, {
       "value": 2,
-      "title": "Checkbox2"
+      "title": "I use this service daily"
     }, {
       "value": 3,
-      "title": "Checkbox3"
+      "title": "I would not use this service again"
     }, {
       "value": 4,
-      "title": "Checkbox4"
+      "title": "I would like updates via email"
     }]
   }, {
     "name": "question4",

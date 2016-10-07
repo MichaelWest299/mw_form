@@ -99,9 +99,9 @@ gulp.task('browserSync', function() {
 gulp.task('watch', ['browserSync', 'sass', 'useref'], function() {
  gulp.watch(['src/templates/**/*.handlebars'], ['templates']);
  gulp.watch(['src/data/*json'], ['minifyjson']);
- gulp.watch('src/html/*.html', ['useref']).on('change', browserSync.reload);
+ gulp.watch(['src/html/*.html'], ['useref']).on('change', browserSync.reload);
  gulp.watch(['src/js/*.js'], ['useref']).on('change', browserSync.reload);
- gulp.watch(['src/scss/main.scss'], ['sass']);
+ gulp.watch(['src/scss/**/*.scss'], ['sass']);
 });
 
 //'gulp' in console runs the default task
