@@ -18,7 +18,7 @@ var gulp = require('gulp'),
 
 //Process styles
 gulp.task('sass', function() {
- gulp.src('src/scss/*.scss')
+ gulp.src('src/scss/**/*.scss')
    //Convert sass to css
    .pipe(sass())
    //Minify css

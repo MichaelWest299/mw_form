@@ -1,99 +1,12 @@
-/*custom font*/
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import "settings/settings.fonts";
 
-/*basic reset*/
-* {margin: 0; padding: 0;}
+@import "generic/generic.reset";
 
-html {
-	height: 100%;
-	background: url('http://imgsrc.hubblesite.org/hu/db/images/hs-2008-34-a-1280x800_wallpaper.jpg');
-	// filter: brightness(50%);
-}
+@import "elements/elements.textinput";
+@import "elements/elements.radio";
+@import "elements/elements.actionbutton";
+@import "elements/elements.heading";
+@import "elements/elements.heading";
+@import "elements/elements.bgimage";
 
-body {
-	font-family: montserrat, arial, verdana;
-}
-/*form styles*/
-#msform {
-	width: 400px;
-	margin: 50px auto;
-	position: relative;
-	text-align: center;
-}
-.radio {
-	text-align: left;
-	margin-left: 35%;
-}
-#msform fieldset {
-	background: white;
-	opacity: 0.7;
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	padding: 20px 30px;
-
-	box-sizing: border-box;
-	width: 80%;
-	margin: 0 10%;
-
-	/*stacking fieldsets above each other*/
-	position: absolute;
-}
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-	display: none;
-}
-/*inputs*/
-#msform input, #msform textarea {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	//width: 100%;
-	box-sizing: border-box;
-	font-family: montserrat;
-	color: #2C3E50;
-	font-size: 13px;
-}
-
-/*buttons*/
-#msform .action-button {
-	width: 100px;
-	background: grey;
-	font-weight: bold;
-	color: white;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 10px 5px;
-	margin: 10px 5px;
-}
-
-#msform .feedback {
-  width: 120px;
-}
-
-#msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px grey;
-}
-/*headings*/
-.fs-title {
-	font-size: 15px;
-	text-transform: uppercase;
-	color: #2C3E50;
-	margin-bottom: 10px;
-}
-
-#output {
-	background: #eee;
-	height: 130px;
-	overflow: auto;
-	white-space: pre-wrap;
-}
-
-#test {
-	background: #eee;
-	height: 130px;
-	overflow: auto;
-	white-space: pre-wrap;
-}
+@import "components/components.slide";
