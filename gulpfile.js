@@ -14,7 +14,8 @@ var gulp = require('gulp'),
  path = require('path'),
  useref = require('gulp-useref'),
  gulpIf = require('gulp-if'),
- browserSync = require('browser-sync').create();
+ browserSync = require('browser-sync').create(),
+ del = require('del');
 
 //Process styles
 gulp.task('sass', function() {
@@ -48,6 +49,11 @@ gulp.task('minifyjson', function() {
  return gulp.src(['src/data/*.json'])
    .pipe(jsonminify())
    .pipe(gulp.dest('dist/data/'));
+});
+
+
+gulp.task('clean:dist', function() {
+  return del.sync('dist');
 });
 
 
@@ -96,7 +102,7 @@ gulp.task('browserSync', function() {
 });
 
 //Watch handlebars, html, json, scss, and js files for changes
-gulp.task('watch', ['browserSync', 'sass', 'useref'], function() {
+gulp.task('watch', ['browserSync', 'clean:dist', 'sass', 'useref', 'templates', 'minifyjson'], function() {
  gulp.watch(['src/templates/**/*.handlebars'], ['templates']);
  gulp.watch(['src/data/*json'], ['minifyjson']);
  gulp.watch(['src/html/*.html'], ['useref']).on('change', browserSync.reload);
