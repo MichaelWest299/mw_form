@@ -1,12 +1,12 @@
-<fieldset>
+<fieldset class="details-fieldset">
   <h2 class="fs-title">{{title}}</h2>
   {{#answers}}
     <div class="details">
-      <label>
-      <input type="{{type}}" name="{{../name}}" class="form-control" placeholder="{{title}}">
+      <label class="details-label">
+      <input type="{{type}}" name="{{../name}}" placeholder="{{title}}">
     </label>
     </div>
   {{/answers}}
   <input type="button" name="previous" class="previous action-button" value="Previous" />
-  <input type="button" name="next" class="next action-button" value="Next" />
+  <input type="button" name="next" class="next action-button next-details" value="Next" disabled="true"/>
 </fieldset>
