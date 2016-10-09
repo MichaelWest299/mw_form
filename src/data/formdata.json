@@ -2,30 +2,26 @@
   "title": "Feedback",
   "welcomemessage": "Thanks for using our service, what did you think?",
   "submitmessage": "Submit your feedback",
+  "thankyoumessage": "Thanks for leaving your feedback!",
   "questions": [{
     "name": "question1",
     "title": "How would you describe our service?",
     "type": "radio",
     "answers": [{
       "value": 1,
-      "title": "Awful",
-      "correct": false
+      "title": "Awful"
     }, {
       "value": 2,
-      "title": "Could be better",
-      "correct": false
+      "title": "Could be better"
     }, {
       "value": 3,
-      "title": "Satisfactory",
-      "correct": false
+      "title": "Satisfactory"
     }, {
       "value": 4,
-      "title": "Great",
-      "correct": false
+      "title": "Great"
     }, {
       "value": 5,
-      "title": "Excellent",
-      "correct": true
+      "title": "Excellent"
     }]
   }, {
     "name": "question2",
@@ -36,7 +32,6 @@
     "name": "question3",
     "title": "Please tick all that apply",
     "type": "checkbox",
-    "has correct": true,
     "answers": [{
       "value": 1,
       "title": "I would recommend to a friend"
@@ -71,6 +66,5 @@
       "title": "URL",
       "type": "url"
     }]
-  }],
-  "thankyoumessage": "Thanks for leaving your feedback!"
+  }]
 }

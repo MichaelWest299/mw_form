@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michaelwestcohaesus/mw_quiz"
+    "url": "git+https://github.com/MichaelWest299/mw_form"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/michaelwestcohaesus/mw_quiz"
+    "url": "https://github.com/MichaelWest299/mw_form"
   },
-  "homepage": "https://github.com/michaelwestcohaesus/mw_quiz#readme",
+  "homepage": "https://github.com/MichaelWest299/mw_form#readme",
   "devDependencies": {
     "browser-sync": "^2.17.0",
     "del": "^2.2.2",
