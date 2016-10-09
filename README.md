@@ -88,7 +88,7 @@ http://localhost:3000/html/
 ```json
 {
   "name": "Question number here e.g. question1",
-  "title": "Title of the questions goes here",
+  "title": "Title of the question",
   "type": "radio",
   "answers": [{
     "value": 1,
@@ -114,7 +114,7 @@ http://localhost:3000/html/
 ```json
 {
   "name": "Question number here e.g. question1",
-  "title": "Title of the questions goes here",
+  "title": "Title of the question",
   "type": "checkbox",
   "answers": [{
     "value": 1,
