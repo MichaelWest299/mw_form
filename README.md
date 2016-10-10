@@ -131,3 +131,5 @@ http://localhost:3000/html/
   }]
 }
 ```
+
+#####[License](LICENSE)
