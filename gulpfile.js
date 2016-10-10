@@ -51,7 +51,7 @@ gulp.task('minifyjson', function() {
    .pipe(gulp.dest('dist/data/'));
 });
 
-
+//Delete dist folder before rebuild
 gulp.task('clean:dist', function() {
   return del.sync('dist');
 });
@@ -61,7 +61,7 @@ gulp.task('clean:dist', function() {
 gulp.task('templates', function() {
  // Assume all partials start with an underscore
  // You could also put them in a folder such as source/templates/partials/*.hbs
- var partials = gulp.src(['src/templates/partials/_*.handlebars'])
+ var partials = gulp.src(['src/templates/partials/_*.hbs'])
    .pipe(handlebars({
      handlebars: require('handlebars')
    }))
@@ -75,7 +75,7 @@ gulp.task('templates', function() {
      }
    }));
 
- var templates = gulp.src('src/templates/**/[^_]*.handlebars')
+ var templates = gulp.src('src/templates/**/[^_]*.hbs')
    .pipe(handlebars({
      handlebars: require('handlebars')
    }))
@@ -103,7 +103,7 @@ gulp.task('browserSync', function() {
 
 //Watch handlebars, html, json, scss, and js files for changes
 gulp.task('watch', ['browserSync', 'clean:dist', 'sass', 'useref', 'templates', 'minifyjson'], function() {
- gulp.watch(['src/templates/**/*.handlebars'], ['templates']);
+ gulp.watch(['src/templates/**/*.hbs'], ['templates']);
  gulp.watch(['src/data/*json'], ['minifyjson']);
  gulp.watch(['src/html/*.html'], ['useref']).on('change', browserSync.reload);
  gulp.watch(['src/js/*.js'], ['useref']).on('change', browserSync.reload);
