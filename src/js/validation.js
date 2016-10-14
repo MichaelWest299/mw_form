@@ -7,7 +7,7 @@
       tel:  /^(?:[-(). +]*[0-9]){11,}[-\s\.()+]{0,}[-\s\./0-9]*$/,
       url: /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/,
     },
-    
+
     init: function() {
         this.cacheDom();
         this.validate();
@@ -50,11 +50,13 @@
     setValidationClasses: function(inputElement, test) {
       this.removeExistingClasses(inputElement);
       if(test) {
-          $(inputElement).parents(':eq(1)').addClass('has-success');
-          $(inputElement).addClass('form-control-success');
+          $(inputElement)
+          .addClass('form-control-success')
+          .parents(':eq(1)').addClass('has-success');
         } else {
-          $(inputElement).parents(':eq(1)').addClass('has-danger');
-          $(inputElement).addClass('form-control-danger');
+          $(inputElement)
+          .addClass('form-control-danger')
+          .parents(':eq(1)').addClass('has-danger');
       }
       this.validateNextButton();
     },
@@ -67,11 +69,13 @@
     validateNextButton: function() {
       this.cacheDom();
       if (this.hasSuccess.length == this.details.length) {
-        this.detailsNext.prop("disabled", null);
-        this.detailsNext.css("border-color","green");
+        this.detailsNext
+          .prop("disabled", null)
+          .css("border-color","green");
       } else {
-        this.detailsNext.prop("disabled", true);
-        this.detailsNext.css("border-color","red");
+        this.detailsNext
+        .prop("disabled", true)
+        .css("border-color","red");
       }
     }
   };
