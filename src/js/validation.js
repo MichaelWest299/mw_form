@@ -13,55 +13,55 @@
       this.cacheDom();
       this.validate();
     },
-    //Find all input, next button and successful inputs
+    //Find next button, all inputs and successful inputs
     cacheDom: function() {
       this.details = $('.details');
       this.detailsNext = $('.next-details');
-      this.inputElement = this.details.find('input');
+      this.inputElements = this.details.find('input');
       this.hasSuccess = this.details.find('.form-control-success');
 
     },
     //Apply validation to every detail input element in dom
     validate: function() {
-      for (var i = 0; i < this.inputElement.length; i++) {
-        this.applyRegExByType(this.inputElement[i]);
+      for (var i = 0; i < this.inputElements.length; i++) {
+        this.applyRegExByType(this.inputElements[i]);
       }
     },
     //Comparing the dom input type with the key from regexpressions - to apply the correct regex
-    applyRegExByType: function(inputElement) {
+    applyRegExByType: function(currentInputElement) {
       for (var regExType in validation.regexpressions) {
         var regex = validation.regexpressions[regExType];
-        if (inputElement.type == regExType) {
-          this.setInputFieldRegexType(regex, inputElement);
+        if (currentInputElement.type == regExType) {
+          this.setInputFieldRegexType(regex, currentInputElement);
         }
       }
     },
     //After any user input, apply the regex to the chosen element
-    setInputFieldRegexType: function(regex, inputElement) {
+    setInputFieldRegexType: function(regex, currentInputElement) {
       var self = this;
-      $(inputElement).on('input', function(e) {
-        var test = regex.test($(inputElement).val());
-        self.setValidationClasses(inputElement, test);
+      $(currentInputElement).on('input', function(e) {
+        var test = regex.test($(currentInputElement).val());
+        self.setValidationClasses(currentInputElement, test);
       });
     },
     //Sets visual tick or cross beside input for success/failure of regex test
-    setValidationClasses: function(inputElement, test) {
-      this.removeExistingClasses(inputElement);
+    setValidationClasses: function(currentInputElement, test) {
+      this.removeExistingClasses(currentInputElement);
       if (test) {
-        $(inputElement)
+        $(currentInputElement)
           .addClass('form-control-success')
           .parents(':eq(1)').addClass('has-success');
       } else {
-        $(inputElement)
+        $(currentInputElement)
           .addClass('form-control-danger')
           .parents(':eq(1)').addClass('has-danger');
       }
       this.validateNextButton();
     },
     //Clear input element of any left-over classes from the last round of validation
-    removeExistingClasses: function(inputElement) {
-      $(inputElement).removeClass('form-control-danger form-control-success');
-      $(inputElement).parents(':eq(1)').removeClass('has-success has-danger');
+    removeExistingClasses: function(currentInputElement) {
+      $(currentInputElement).removeClass('form-control-danger form-control-success');
+      $(currentInputElement).parents(':eq(1)').removeClass('has-success has-danger');
     },
     //Enable the next button when all fields have passed validation
     validateNextButton: function() {
