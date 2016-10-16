@@ -1,3 +1,6 @@
+//Define global namespace
+var mw_app = mw_app || {};
+
 mw_app.dynamicLoad = (function() {
 
   var current_fs, next_fs, previous_fs; //fieldsets
@@ -10,14 +13,14 @@ mw_app.dynamicLoad = (function() {
 
   var _animationSettings = {
     duration: 800,
-    stepNext: function(now) {
+    stepNext: function(currentOpacity) {
       //as the opacity of current_fs reduces to 0 - stored in "now"
       //1. scale current_fs down to 80%
-      scale = 1 - (1 - now) * 0.2;
+      scale = 1 - (1 - currentOpacity) * 0.2;
       //2. bring next_fs from the right(50%)
-      left = (now * 50) + "%";
+      left = (currentOpacity * 50) + "%";
       //3. increase opacity of next_fs to 1 as it moves in
-      opacity = 0.7 - now;
+      opacity = 0.7 - currentOpacity;
       current_fs.css({
         'transform': 'scale(' + scale + ')'
       });
@@ -26,14 +29,14 @@ mw_app.dynamicLoad = (function() {
         'opacity': opacity
       });
     },
-    stepPrev: function(now) {
+    stepPrev: function(currentOpacity) {
       //as the opacity of current_fs reduces to 0 - stored in "now"
       //1. scale previous_fs from 80% to 100%
-      scale = 0.8 + (1 - now) * 0.2;
+      scale = 0.8 + (1 - currentOpacity) * 0.2;
       //2. take current_fs to the right(50%) - from 0%
-      left = ((1 - now) * 50) + "%";
+      left = ((1 - currentOpacity) * 50) + "%";
       //3. increase opacity of previous_fs to 1 as it moves in
-      opacity = 0.7 - now;
+      opacity = 0.7 - currentOpacity;
       current_fs.css({
         'left': left
       });
@@ -60,8 +63,8 @@ mw_app.dynamicLoad = (function() {
     current_fs.animate({
       opacity: 0
     }, {
-      step: function(now) {
-        _animationSettings.stepNext(now);
+      step: function(currentOpacity) {
+        _animationSettings.stepNext(currentOpacity);
       },
       duration: _animationSettings.duration,
       complete: function() {
@@ -82,8 +85,8 @@ mw_app.dynamicLoad = (function() {
     current_fs.animate({
       opacity: 0
     }, {
-      step: function(now) {
-        _animationSettings.stepPrev(now);
+      step: function(currentOpacity) {
+        _animationSettings.stepPrev(currentOpacity);
       },
       duration: _animationSettings.duration,
       complete: function() {

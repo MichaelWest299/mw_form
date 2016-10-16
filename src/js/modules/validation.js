@@ -1,3 +1,6 @@
+//Define global namespace
+var mw_app = mw_app || {};
+
 mw_app.validation = (function() {
 
   //Define regular expressions object

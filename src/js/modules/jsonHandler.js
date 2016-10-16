@@ -1,3 +1,6 @@
+//Define global namespace
+var mw_app = mw_app || {};
+
 mw_app.jsonHandler = (function() {
 
   //Fetch the JSON data from formdata.json to allow us to populate the form

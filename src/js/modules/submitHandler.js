@@ -1,3 +1,6 @@
+//Define global namespace
+var mw_app = mw_app || {};
+
 mw_app.submitHandler = (function() {
 
   //Allows a form submission to be transformed into a json object
