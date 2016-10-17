@@ -1,7 +1,6 @@
 ##Multi-step form dynamically populated by JSON data
 
-
-
+###Contents
 * [Setup (OSX)](#setup-instructions-osx)
 * [Gulp](#gulp-has-been-configured-to:)
 * [Templates](#templates-included-in-src/templates/partials/)
@@ -38,6 +37,9 @@ gulp
 ```
 http://localhost:3000/html/
 ```
+
+---
+
 ####Gulp has been configured to:
 - pre-compile handbars templates
 - concat js files
@@ -45,12 +47,16 @@ http://localhost:3000/html/
 - minify js, json and css
 - start up a local server and open in your default browser
 
+---
+
 ####Templates included in src/templates/partials/
 - textarea - for additional user comments
 - details - including real-time validation for name, tel, email, and URL
 - radio - customizable multiple choice question
 - checkbox - customizable set of checkboxes
 - add some more if you'd like!
+
+---
 
 ##JSON Data
 ####Each template pulls data from data/formdata.json
@@ -63,6 +69,7 @@ http://localhost:3000/html/
   "questions": []
 }
 ```
+
 ####The questions array can be populated by the following question types:
 ####Textarea
 ```json
@@ -73,6 +80,7 @@ http://localhost:3000/html/
   "placeholder": "Placeholder text"
 }
 ```
+
 ####Details
 #####Note: You are not limited to 4 details
 ```json
@@ -148,5 +156,38 @@ http://localhost:3000/html/
   }]
 }
 ```
+
+---
+
+##Modules
+###Our global namespace is mw_app
+####mw_app.jsonHandler
+#####Main private methods
+- _ajaxCall(), fetches data from src/json/formdata.json
+- _compileHandlebars(), fetches pre-compiled hbs templates
+
+####dynamicLoad
+#####Main private methods
+- _eventNext() & _eventPrev() are bound to the next and previous button respectively, fading out current fieldset and showing the next/previous fieldset
+
+####mw_app.validation
+#####Main public methods
+- resetValidation(currentInputElement)
+- validate
+#####Reset usage
+#####To reset validation on _all_** input fields
+```
+mw_app.validation.resetValidation('input')
+```
+#####To reset validation of all text input fields
+```
+mw_app.validation.resetValidation('input[type=text]')
+```
+#####This can be done for any of the input types supported in this form, email, text, url and tel.
+
+####submitHandler
+#####Main private methods
+- _preventEnterSubmit - Fixes a bug where a user could end form by pressing the enter key
+- _createJsonOnSubmission - Uses _serializeObject to transform final form input into a JSON object, this is logged to console, but could be grabbed by an API.
 
 #####[License](LICENSE)
