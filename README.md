@@ -163,12 +163,12 @@ http://localhost:3000/html/
 ###My src/js files follow the [module pattern](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html), all sub-modules belong to the namespace mw_app
 ###mw_app.jsonHandler
 #####Main private methods
-- ajaxCall() fetches data from src/json/formdata.json
-- compileHandlebars() fetches pre-compiled hbs templates
+- \_ajaxCall() fetches data from src/json/formdata.json
+- \_compileHandlebars() fetches pre-compiled hbs templates
 
 ###mw_app.dynamicLoad
 #####Main private methods
-- eventNext() & eventPrev() are bound to the next and previous buttons respectively, fading out current fieldset and showing the next/previous fieldset
+- \_eventNext() & \_eventPrev() are bound to the next and previous buttons respectively, fading out current fieldset and showing the next/previous fieldset
 
 ###mw_app.validation
 #####Main public methods
@@ -188,7 +188,7 @@ mw_app.validation.resetValidation('input[type=text]')
 
 ###mw_app.submitHandler
 #####Main private methods
-- preventEnterSubmit - Fixes a bug where a user could end form by pressing the enter key
-- createJsonOnSubmission - Uses serializeObject to transform final form input into a JSON object, this is logged to console, but could be grabbed by an API.
+- \_preventEnterSubmit() - Fixes a bug where a user could end form by pressing the enter key
+- \_createJsonOnSubmission() - Uses serializeObject to transform final form input into a JSON object, this is logged to console, but could be grabbed by an API.
 
 #####[License](LICENSE)
