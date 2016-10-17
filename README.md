@@ -1,22 +1,22 @@
 ##Multi-step form dynamically populated by JSON data
 
 ###Contents
-* [Setup (OSX)](#setup-instructions-osx)
+* [Setup Instructions (OSX)](#setup-instructions-osx)
 * [Gulp](#gulp-has-been-configured-to)
-* [Templates](#templates-included-in-src/templates/partials/)
+* [Templates](#templates-included-in-srctemplatespartials)
 * [JSON Data](#json-data)
   * [Textarea](#textarea)
   * [Details](#details)
   * [Radio](#radio)
   * [Checkbox](#checkbox)
 * [Modules](#modules)
-  * [jsonHandler](#mw_app.jsonHandler)
-  * [dynamicLoad](#mw_app.dynamicLoad)
-  * [validation](#mw_app.validation)
-  * [submitHandler](#mw_app.submitHandler)
+  * [jsonHandler](#mw_appjsonHandler)
+  * [dynamicLoad](#mw_appdynamicload)
+  * [validation](#mw_appvalidation)
+  * [submitHandler](#mw_appsubmitHandler)
 * [License](#license)
 
-##Setup Instructions OSX
+##Setup Instructions (OSX)
 ####In terminal, clone to your local machine,
 ```
 git clone https://github.com/MichaelWest299/mw_form
