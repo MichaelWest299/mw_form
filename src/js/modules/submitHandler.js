@@ -42,6 +42,7 @@ mw_app.submitHandler = (function() {
     _preventEnterSubmit();
     _createJsonOnSubmission();
   };
+  
   return {
     init: init
   };
