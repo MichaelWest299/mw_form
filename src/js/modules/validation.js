@@ -20,7 +20,8 @@ mw_app.validation = (function() {
   };
 
   //Apply validation to every detail input element in dom
-  var _validate = function() {
+  var validate = function() {
+    _cacheDom.call(this);
     for (var i = 0; i < this.inputElements.length; i++) {
       _applyRegExByType(this.inputElements[i]);
     }
@@ -79,11 +80,15 @@ mw_app.validation = (function() {
     $(currentInputElement).parents(':eq(1)').removeClass('has-success has-danger');
   };
 
-  var init = function() {
-    _cacheDom();
-    _validate();
+  //Clears validation classes and resets next button
+  var resetValidation = function(currentInputElement) {
+      _removeExistingClasses(currentInputElement);
+      _validateNextButton();
   };
+
+  //Make validate and resetValidation methods public
   return {
-    init: init
+    validate: validate,
+    resetValidation: resetValidation
   };
 })();
