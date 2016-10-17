@@ -1,23 +1,40 @@
 ##Multi-step form dynamically populated by JSON data
 
-##Setup Instructions (OSX)
+
+
+* [Setup (OSX)](#setup-instructions-osx)
+* [Gulp](#gulp-has-been-configured-to:)
+* [Templates](#templates-included-in-src/templates/partials/)
+* [JSON Data](#json-data)
+  * [Textarea](#textarea)
+  * [Details](#details)
+  * [Radio](#radio)
+  * [Checkbox](#checkbox)
+* [Modules](#modules)
+  * [jsonHandler](#jsonHandler)
+  * [dynamicLoad](#dynamicLoad)
+  * [validation](#validation)
+  * [submitHandler](#submitHandler)
+* [License](#license)
+
+##Setup Instructions OSX
 ####In terminal, clone to your local machine,
 ```
 git clone https://github.com/MichaelWest299/mw_form
 ```
-####Navigate to project directory,
+####Navigate to project directory
 ```
 cd ~/mw_form
 ```
-####Install dependencies,
+####Install dependencies
 ```
 npm install
 ```
-####Start the default gulp task,
+####Start the default gulp task
 ```
 gulp
 ```
-####Your default browser should open at,
+####Your default browser should open at
 ```
 http://localhost:3000/html/
 ```
