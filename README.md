@@ -166,7 +166,7 @@ http://localhost:3000/html/
 - _ajaxCall(), fetches data from src/json/formdata.json
 - _compileHandlebars(), fetches pre-compiled hbs templates
 
-####dynamicLoad
+####mw_app.dynamicLoad
 #####Main private methods
 - _eventNext() & _eventPrev() are bound to the next and previous button respectively, fading out current fieldset and showing the next/previous fieldset
 
@@ -185,7 +185,7 @@ mw_app.validation.resetValidation('input[type=text]')
 ```
 #####This can be done for any of the input types supported in this form, email, text, url and tel.
 
-####submitHandler
+####mw_app.submitHandler
 #####Main private methods
 - _preventEnterSubmit - Fixes a bug where a user could end form by pressing the enter key
 - _createJsonOnSubmission - Uses _serializeObject to transform final form input into a JSON object, this is logged to console, but could be grabbed by an API.
