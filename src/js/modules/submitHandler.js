@@ -34,7 +34,6 @@ mw_app.submitHandler = (function() {
       $('form').on('submit', function(e) {
         var answerData = $(this)._serializeObject();
         console.log(answerData);
-        // $('#output').text(JSON.stringify(answerData, undefined, 2));
         return false;
       });
   };
