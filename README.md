@@ -160,7 +160,7 @@ http://localhost:3000/html/
 ---
 
 ##Modules
-###All modules are stored within the namespace mw_app
+###My src/js files follow the [module pattern](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html), all sub-modules belong to the namespace mw_app
 ###mw_app.jsonHandler
 #####Main private methods
 - ajaxCall() fetches data from src/json/formdata.json
@@ -168,15 +168,15 @@ http://localhost:3000/html/
 
 ###mw_app.dynamicLoad
 #####Main private methods
-- eventNext() & eventPrev() are bound to the next and previous button respectively, fading out current fieldset and showing the next/previous fieldset
+- eventNext() & eventPrev() are bound to the next and previous buttons respectively, fading out current fieldset and showing the next/previous fieldset
 
 ###mw_app.validation
 #####Main public methods
 - resetValidation(currentInputElement)
-- validate()
+- validate() provides real-time validation for the details section of the form
 
 #####Reset usage
-#####To reset validation on _all_** input fields
+#####To reset validation on _all_ input fields
 ```
 mw_app.validation.resetValidation('input')
 ```
@@ -184,7 +184,7 @@ mw_app.validation.resetValidation('input')
 ```
 mw_app.validation.resetValidation('input[type=text]')
 ```
-#####This can be done for any of the input types supported in this form, email, text, url and tel.
+#####This can be done for any of the input types supported in this form - email, text, url and tel.
 
 ###mw_app.submitHandler
 #####Main private methods
