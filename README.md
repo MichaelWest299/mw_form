@@ -2,7 +2,7 @@
 
 ###Contents
 * [Setup (OSX)](#setup-instructions-osx)
-* [Gulp](#gulp-has-been-configured-to:)
+* [Gulp](#gulp-has-been-configured-to)
 * [Templates](#templates-included-in-src/templates/partials/)
 * [JSON Data](#json-data)
   * [Textarea](#textarea)
@@ -40,7 +40,7 @@ http://localhost:3000/html/
 
 ---
 
-####Gulp has been configured to:
+####Gulp has been configured to
 - pre-compile handbars templates
 - concat js files
 - convert .scss files to .css
@@ -161,16 +161,16 @@ http://localhost:3000/html/
 
 ##Modules
 ###Our global namespace is mw_app
-####mw_app.jsonHandler
+####jsonHandler
 #####Main private methods
 - _ajaxCall(), fetches data from src/json/formdata.json
 - _compileHandlebars(), fetches pre-compiled hbs templates
 
-####mw_app.dynamicLoad
+####dynamicLoad
 #####Main private methods
 - _eventNext() & _eventPrev() are bound to the next and previous button respectively, fading out current fieldset and showing the next/previous fieldset
 
-####mw_app.validation
+####validation
 #####Main public methods
 - resetValidation(currentInputElement)
 - validate
@@ -185,7 +185,7 @@ mw_app.validation.resetValidation('input[type=text]')
 ```
 #####This can be done for any of the input types supported in this form, email, text, url and tel.
 
-####mw_app.submitHandler
+####submitHandler
 #####Main private methods
 - _preventEnterSubmit - Fixes a bug where a user could end form by pressing the enter key
 - _createJsonOnSubmission - Uses _serializeObject to transform final form input into a JSON object, this is logged to console, but could be grabbed by an API.
