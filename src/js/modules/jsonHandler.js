@@ -34,7 +34,7 @@ mw_app.jsonHandler = (function() {
 
   var _compileHandlebars = function(fetchJson) {
 
-    //Pre compile the handlebars
+    //Fetch the pre-compiled handlebars
     var formContainerScript = MyApp.templates.formContainer(fetchedJson),
       formContentScript = MyApp.templates.formContent(fetchedJson);
 
@@ -43,7 +43,7 @@ mw_app.jsonHandler = (function() {
     $('.content').append(formContentScript);
   };
 
-  //Pre render the handlebars
+  //Render the handlebars
   var _renderHandlebars = function(fetchedJson) {
     _registerHandlebarsHelp();
     _compileHandlebars(fetchedJson);
