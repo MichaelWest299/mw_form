@@ -10,10 +10,10 @@
   * [Radio](#radio)
   * [Checkbox](#checkbox)
 * [Modules](#modules)
-  * [jsonHandler](#mw_appjsonHandler)
+  * [jsonHandler](#mw_appjsonhandler)
   * [dynamicLoad](#mw_appdynamicload)
   * [validation](#mw_appvalidation)
-  * [submitHandler](#mw_appsubmitHandler)
+  * [submitHandler](#mw_appsubmithandler)
 * [License](#license)
 
 ##Setup Instructions (OSX)
@@ -161,6 +161,7 @@ http://localhost:3000/html/
 
 ##Modules
 ###My src/js files follow the [module pattern](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html), all sub-modules belong to the namespace mw_app
+
 ###mw_app.jsonHandler
 #####Main private methods
 - \_ajaxCall() fetches data from src/json/formdata.json
