@@ -24,23 +24,19 @@ mw_app.submitHandler = (function() {
 
   //Prevent enter key form submission
   var _preventEnterSubmit = function() {
-    $(function() {
       $('form input').on('keypress', function(e) {
         return e.which !== 13;
       });
-    });
   };
 
   //Create json object upon form submission
   var _createJsonOnSubmission = function() {
-    $(function() {
-      $('form').submit(function() {
+      $('form').on('submit', function(e) {
         var answerData = $(this)._serializeObject();
         console.log(answerData);
         // $('#output').text(JSON.stringify(answerData, undefined, 2));
         return false;
       });
-    });
   };
 
   var init = function() {
