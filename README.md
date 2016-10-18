@@ -192,4 +192,4 @@ mw_app.validation.resetValidation('input[type=text]')
 - \_preventEnterSubmit() stops the user from ending the form by pressing the enter key
 - \_createJsonOnSubmission() uses serializeObject to transform final form input into a JSON object, this is logged to console, but could be grabbed by an API.
 
-#####[License](LICENSE)
+##[License](LICENSE)
