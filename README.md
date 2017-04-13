@@ -1,6 +1,6 @@
-##Multi-step form dynamically populated by JSON data
+Multi-step form dynamically populated by JSON data
 
-###Contents
+Contents
 * [Setup Instructions (OSX)](#setup-instructions-osx)
 * [Gulp](#gulp-has-been-configured-to)
 * [Templates](#templates-included-in-srctemplatespartials)
@@ -16,31 +16,31 @@
   * [submitHandler](#mw_appsubmithandler)
 * [License](#license)
 
-##Setup Instructions (OSX)
-####In terminal, clone to your local machine,
+Setup Instructions (OSX)
+In terminal, clone to your local machine,
 ```
 git clone https://github.com/MichaelWest299/mw_form
 ```
-####Navigate to project directory
+Navigate to project directory
 ```
 cd ~/mw_form
 ```
-####Install dependencies
+Install dependencies
 ```
 npm install
 ```
-####Start the default gulp task
+Start the default gulp task
 ```
 gulp
 ```
-####Your default browser should open at
+Your default browser should open at
 ```
 http://localhost:3000/html/
 ```
 
 ---
 
-####Gulp has been configured to
+Gulp has been configured to
 - pre-compile handbars templates
 - concat js files
 - convert .scss files to .css
@@ -49,7 +49,7 @@ http://localhost:3000/html/
 
 ---
 
-####Templates included in src/templates/partials/
+Templates included in src/templates/partials/
 - textarea - for additional user comments
 - details - including real-time validation for name, tel, email, and URL
 - radio - customizable multiple choice question
@@ -58,8 +58,8 @@ http://localhost:3000/html/
 
 ---
 
-##JSON Data
-####Each template pulls data from data/formdata.json
+JSON Data
+Each template pulls data from data/formdata.json
 ```json
 {
   "title": "Form title",
@@ -70,8 +70,8 @@ http://localhost:3000/html/
 }
 ```
 
-####The questions array can be populated by the following question types:
-####Textarea
+The questions array can be populated by the following question types:
+Textarea
 ```json
 {
   "name": "Question number here e.g. question1",
@@ -81,8 +81,8 @@ http://localhost:3000/html/
 }
 ```
 
-####Details
-#####Note: You are not limited to 4 details
+Details
+Note: You are not limited to 4 details
 ```json
 {
   "name": "Question number here e.g. question1",
@@ -108,8 +108,8 @@ http://localhost:3000/html/
 }
 ```
 
-####Radio
-#####Note: You are not limited to 5 answers
+Radio
+Note: You are not limited to 5 answers
 ```json
 {
   "name": "Question number here e.g. question1",
@@ -134,8 +134,8 @@ http://localhost:3000/html/
 }
 ```
 
-####Checkbox
-#####Note: You are not limited to 4 answers
+Checkbox
+Note: You are not limited to 4 answers
 ```json
 {
   "name": "Question number here e.g. question1",
@@ -159,37 +159,37 @@ http://localhost:3000/html/
 
 ---
 
-##Modules
-###My src/js files follow the [module pattern](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html), all sub-modules belong to the namespace mw_app
+Modules
+My src/js files follow the [module pattern](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html), all sub-modules belong to the namespace mw_app
 
-###mw_app.jsonHandler
-#####Main private methods
+mw_app.jsonHandler
+Main private methods
 - \_ajaxCall() fetches data from src/json/formdata.json
 - \_compileHandlebars() fetches and renders pre-compiled hbs templates
 
-###mw_app.dynamicLoad
-#####Main private methods
+mw_app.dynamicLoad
+Main private methods
 - \_eventNext() & \_eventPrev() are bound to the next and previous buttons respectively, fading out current fieldset and showing the next/previous fieldset
 
-###mw_app.validation
-#####Main public methods
+mw_app.validation
+Main public methods
 - resetValidation(currentInputElement)
 - validate() provides real-time validation for the details section of the form
 
-#####Reset usage
-#####To reset validation on _all_ input fields
+Reset usage
+To reset validation on _all_ input fields
 ```
 mw_app.validation.resetValidation('input')
 ```
-#####To reset validation of all text input fields
+To reset validation of all text input fields
 ```
 mw_app.validation.resetValidation('input[type=text]')
 ```
-#####This can be done for any of the input types supported in this form - email, text, url and tel.
+This can be done for any of the input types supported in this form - email, text, url and tel.
 
-###mw_app.submitHandler
-#####Main private methods
+mw_app.submitHandler
+Main private methods
 - \_preventEnterSubmit() stops the user from ending the form by pressing the enter key
 - \_createJsonOnSubmission() uses serializeObject to transform final form input into a JSON object, this is logged to console, but could be grabbed by an API.
 
-##[License](LICENSE)
+[License](LICENSE)
